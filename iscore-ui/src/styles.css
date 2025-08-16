@@ -1,0 +1,44 @@
+body {
+  background-color: grey;
+}
+
+.glow {
+   font-size: 80px;
+   color: #fff;
+   text-align: center;
+   animation: glow 1s ease-in-out infinite alternate;
+ }
+
+@-webkit-keyframes glow {
+   from {
+     text-shadow: 0 0 10px #018234, 0 0 20px #018234, 0 0 30px #018234, 0 0 40px #018234, 0 0 50px #018234, 0 0 60px #018234, 0 0 70px #018234;
+   }
+
+   to {
+     text-shadow: 0 0 20px #018234 0 0 30px #018234, 0 0 40px #018234, 0 0 50px #018234, 0 0 60px #018234, 0 0 70px #018234, 0 0 80px #018234;
+   }
+ }
+
+.header-container {
+  position: relative; /* This is the anchor for the absolute positioning of the icon */
+  text-align: center;
+  padding: 20px;
+}
+
+.top-right-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 150px; /* Adjust width as needed for a logo */
+  height: auto; /* Keeps the logo's aspect ratio */
+}
+
+
+
+
+
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}

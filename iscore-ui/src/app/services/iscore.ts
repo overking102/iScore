@@ -20,8 +20,8 @@ export interface ScoreDataResponse {
 export class IscoreService {
 
   // The URL of your Spring Boot inquiry endpoint
-  private apiUrl = 'http://localhost:8080/inquiry';
-  private createapiUrl = 'http://localhost:8080/inquiry/create';
+  private apiUrl = 'http://localhost:8080/home';
+  private createapiUrl = 'http://localhost:8080/home/create';
 
   constructor(private http: HttpClient) { }
 

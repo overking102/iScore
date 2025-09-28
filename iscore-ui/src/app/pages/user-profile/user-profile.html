@@ -1,0 +1,22 @@
+<div class="profile-page-container">
+  <!-- Main Profile Header Card -->
+  <mat-card class="profile-header-card">
+    <div class="banner-container">
+      <img class="profile-banner" src="assets/banner-default.jpg" alt="Profile Banner">
+      <img class="profile-picture" [src]="imageUrl" alt="Profile Picture">
+      <button mat-mini-fab color="accent" class="edit-profile-picture" (click)="fileInput.click()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <input hidden type="file" #fileInput (change)="onFileSelected($event)">
+    </div>
+    <mat-card-content class="profile-intro">
+      <h1 class="user-name">John Doe</h1>
+      <p class="user-headline">Software Engineer at iScore | Angular & Cloud Enthusiast</p>
+      <p class="user-location">San Francisco Bay Area, United States</p>
+      <div class="profile-actions">
+        <button mat-raised-button color="primary">Open to</button>
+        <button mat-stroked-button color="primary">Add profile section</button>
+        <button mat-stroked-button>More</button>
+      </div>
+    </mat-card-content>
+  </mat-card>

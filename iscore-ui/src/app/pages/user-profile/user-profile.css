@@ -1,0 +1,96 @@
+:host {
+  display: block;
+  background-color: #f4f4f4; /* A light grey background for the page */
+}
+
+.profile-page-container {
+  max-width: 800px;
+  margin: 20px auto;
+  display: grid;
+  gap: 20px; /* Space between cards */
+}
+
+/* Header Card Styling */
+.profile-header-card {
+  overflow: visible; /* Allows the profile picture to overlap */
+}
+
+.banner-container {
+  position: relative;
+  height: 200px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.profile-picture {
+  position: absolute;
+  top: 120px;      /* Pulls the picture down */
+  left: 24px;      /* Pushes it from the left edge */
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background-color: white;
+  object-fit: cover;
+}
+
+.edit-profile-picture {
+  position: absolute;
+  top: 240px;   /* Positions it relative to the banner */
+  left: 140px;  /* Aligns with the profile picture */
+  transform: scale(0.8);
+}
+
+.profile-intro {
+  padding-top: 100px; /* Pushes content below the overlapping picture */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-headline {
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.user-location {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.profile-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+/* General Card and List Styling */
+mat-card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+mat-list-item {
+  height: auto !important;
+  padding: 16px 0;
+}
+
+.item-meta {
+  font-size: 14px;
+  color: #666;
+}
+
+mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.06);
+}

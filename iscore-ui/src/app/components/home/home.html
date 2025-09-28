@@ -1,0 +1,67 @@
+<div class="home-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        iScore Credit Inquiry
+      </mat-card-title>
+      <mat-card-subtitle>Enter a national ID to get the credit report</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form #inquiryForm="ngForm" (ngSubmit)="checkScore()">
+        <mat-form-field appearance="outline">
+          <mat-label>National ID Number</mat-label>
+          <mat-icon matPrefix>perm_identity</mat-icon>
+          <input matInput name="natinalId" [(ngModel)]="nationalIdInput" required  max="14" pattern="^[0-9]+$">
+        </mat-form-field>
+        <div class="button-container">
+          <mat-spinner [diameter]="40" *ngIf="isLoading"></mat-spinner>
+          <button *ngIf="!isLoading" mat-raised-button color="primary" type="submit"[disabled]="inquiryForm.invalid">
+            Check Score
+          </button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage" class="response-box error">{{ errorMessage }}</div>
+      <div *ngIf="scoreResponse" class="response-box success">
+        <strong>Score:</strong> {{ scoreResponse.iScore }}
+        <strong>Segment:</strong> {{ scoreResponse.segment }}
+      </div>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create New Profile</mat-card-title>
+    <mat-card-subtitle>Create a new user profile with a score segment</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form #createForm="ngForm" (ngSubmit)="createNewProfile()">
+      <mat-form-field appearance="outline">
+        <mat-label>New National ID</mat-label>
+        <mat-icon matPrefix>person_add</mat-icon>
+        <input matInput name="NewNatonalId" [(ngModel)]="newNationalId" required maxlength="14" pattern="^[0-9]+$">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Segment</mat-label>
+        <mat-icon matPrefix>category</mat-icon>
+        <mat-select name="newSegment" [(ngModel)]="newSegment" required>
+          <mat-option value="standard">Standard</mat-option>
+          <mat-option value="premium">Premium</mat-option>
+          <mat-option value="highrisk">HighRisk</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button-container">
+        <mat-spinner [diameter]="40" *ngIf="isLoading"></mat-spinner>
+        <button *ngIf="!isLoading" mat-raised-button color="accent" type="submit"[disabled]="createForm.invalid">
+          Create Profile
+        </button>
+      </div>
+    </form>
+    <div *ngIf="createErrorMessage" class="response-box error">{{ createErrorMessage }}
+    </div>
+    <div *ngIf="createResponse" class="response-box success">
+      <strong>Profile Created!</strong><br>
+      ID: {{ createResponse.nationalId  }} | Score: {{ createResponse.generatedScore  }}
+    </div>
+  </mat-card-content>
+</mat-card>
+
+</div>

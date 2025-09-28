@@ -5,7 +5,7 @@ import { Login } from './components/login/login';
 import { Register } from './components/register/register';
 import { authGuard } from './guards/auth-guard';
 import { IscoreService } from './services/iscore';
-
+import { UserProfile } from './pages/user-profile/user-profile'
 
 export const routes: Routes = [
 {
@@ -19,16 +19,18 @@ export const routes: Routes = [
   },
 {
   path: 'home',
-  component: Home
+  component: Home,
+  canActivate: [authGuard]
 
   },
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
-
 {
-        path: '', // This is the URL for your main page, e.g., localhost:4200/home
-        component: Home,
-        canActivate: [authGuard] // The "bouncer" for this route
-    },
+  path: 'user-profile',
+  component: UserProfile,
+  canActivate: [authGuard]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+
+{ path: '**', redirectTo: '/login' }
 
 
 
